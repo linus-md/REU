@@ -34,4 +34,9 @@ p = append!(append!(reverse([0.5965843419665127, -0.14037342740087336, -0.020411
 F = System(subs([f_1, f_2, f_3, f_4, f_5, f_6, f_7, f_8, f_9], paramVec => p), variables = [u[1], v[1], u[2], v[2], u[3], v[3], s, t, r])
 S = solve(F, show_progress = false);
 l = length(real_solutions(S))
-print(l)
+println(l)
+
+for i in range(0, 1, 5000)
+    d = randn(18)
+    q = p + 1/1000 * d/norm(d)
+end
