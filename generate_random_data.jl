@@ -21,10 +21,10 @@ paramVec = collect(Iterators.flatten([a,b,c]))
 F = System([f_1, f_2, f_3, f_4, f_5, f_6, f_7, f_8, f_9], variables = [u[1], v[1], u[2], v[2], u[3], v[3], s, t, r], parameters = paramVec);
 df = DataFrame(A=Vector[], B=Int[])
 
-for i in range(0, 1, 19500)
+for i in range(0, 1, 10000)
     p = randn(18)
     S = solve(F, target_parameters = p, show_progress = false);
     push!(df, [p, length(real_solutions(S))])
 end
 
-CSV.write("data_random.csv", df)
+CSV.write("data_random_3.csv", df)
