@@ -25,6 +25,7 @@ for i in 1:69
     no = df[i, 19]
     paramVec = collect(Iterators.flatten([a,b,c]))
     F = System(subs([f_1, f_2, f_3, f_4, f_5, f_6, f_7, f_8, f_9], paramVec => p), variables = [u[1], v[1], u[2], v[2], u[3], v[3], s, t, r])
-    sol = solve(F, show_progress = false)
-    certify(F, sol)
+    S = solve(F, show_progress = false)
+    println(length(real_solutions(S)))
+    println(certify(F, S))
 end
