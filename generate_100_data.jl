@@ -32,12 +32,12 @@ df = DataFrame(A=Vector[], B=Int[])
 
 for i in range(0, 1, 500)
     d = randn(18)
-    q = p + 10^-8 * d/norm(d)
+    q = p + 10^-6 * d/norm(d)
     num = get_num(q)
     println(num)
-    if num in [92, 94, 96, 98, 100, 102]
+    if num in [92, 94, 96]
         push!(df, [q, num])
     end
 end
 
-CSV.write("data_100_2.csv", df)
+CSV.write("data_100_2.csv", df, append=true)
