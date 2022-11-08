@@ -4,6 +4,7 @@ using DataFrames
 using CSV
 
 df = CSV.read("/Users/las/Documents/GitHub/REU/certify.csv", DataFrame)
+CSV.write("certify.csv", df, append=false)
 
 @var s, t, r 
 @var u[1:3], v[1:3] 
