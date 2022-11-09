@@ -23,7 +23,7 @@ F = System([f_1, f_2, f_3, f_4, f_5, f_6, f_7, f_8, f_9],
                 parameters = [a; b; c])
 
 # Loading parameters
-df = CSV.read("certify.csv", DataFrame)
+df = CSV.read("Data/certify.csv", DataFrame)
 params = map(1:69) do i
     p = Vector(df[i, 1:18])
 end
