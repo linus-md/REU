@@ -21,12 +21,12 @@ f_8 = det([differentiate(f_2, [u[2], v[2]]) differentiate(f_5, [u[2], v[2]])])
 f_9 = det([differentiate(f_3, [u[3], v[3]]) differentiate(f_6, [u[3], v[3]])])
 
 
-for i in 1:69
+for i in 1:10
     p = Vector(df[i, 1:18])
     no = df[i, 19]
     paramVec = collect(Iterators.flatten([a,b,c]))
     F = System(subs([f_1, f_2, f_3, f_4, f_5, f_6, f_7, f_8, f_9], paramVec => p), variables = [u[1], v[1], u[2], v[2], u[3], v[3], s, t, r])
-    S = solve(F, show_progress = false)
+    S = solve(F, show_progress = true)
     println(length(real_solutions(S)))
     println(certify(F, S))
 end
